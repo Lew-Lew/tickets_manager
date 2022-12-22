@@ -1,0 +1,9 @@
+<h1>Tickets#new</h1>
+<p>Find me in app/views/tickets/new.html.erb</p>
+<h1>New review</h1>
+<%= simple_form_for [@project, @ticket] do |f| %>
+  <%= f.input :description %>
+  <%= f.input :statut %>
+  <%= f.input :priority %>
+  <%= f.submit "Submit ticket", class: "btn btn-primary" %>
+<% end %>
