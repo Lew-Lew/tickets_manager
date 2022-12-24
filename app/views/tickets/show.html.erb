@@ -1,2 +1,22 @@
 <h1>Tickets#show</h1>
 <p>Find me in app/views/tickets/show.html.erb</p>
+<%= link_to "back", @ticket.project  %>
+
+<h2><%= @ticket.description %></h2>
+<p>status: <%= @ticket.statut %></p>
+<p>priority: <%= @ticket.priority %></p>
+
+<p>Messages:</p>
+<ul>
+  <% @messages.each do |message| %>
+  <li>
+    <%= message.content %>
+  </li>
+  <% end %>
+</ul>
+
+<p>leave a message</p>
+<%= simple_form_for [@ticket, @message] do |f| %>
+  <%= f.input :content %>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>

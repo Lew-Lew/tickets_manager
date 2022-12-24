@@ -6,6 +6,8 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @tickets = Ticket.all
+    @ticket = Ticket.new
   end
 
   def new

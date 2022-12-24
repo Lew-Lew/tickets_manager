@@ -9,9 +9,10 @@ require 'faker'
 
 puts "Cleaning Database"
 Project.destroy_all
+Ticket.destroy_all
+Message.destroy_all
 
 puts 'Creating 10 fake projects...'
-projects = []
 10.times do
   project = Project.new(
     name: Faker::Movie.title,
@@ -19,7 +20,27 @@ projects = []
     url: Faker::Internet.url
   )
   project.save!
-  projects << project
 end
+
+puts 'Creating 10 fake tickets per project...'
+10.times do
+  ticket = Ticket.new(
+    description: Faker::Movie.quote,
+    statut: "open",
+    priority: "2",
+    project: Project.all.sample
+  )
+  ticket.save!
+end
+
+puts 'Creating 5 fake messages per ticket...'
+5.times do
+  message = Message.new(
+    content: Faker::Movie.quote,
+    ticket: Ticket.all.sample
+  )
+  message.save!
+end
+
 
 puts 'Finished!'
