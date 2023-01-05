@@ -13,13 +13,20 @@
   <% @tickets.each do |ticket|%>
   <li>
     <%= link_to ticket.description, ticket_path(ticket) %> - <%= ticket.statut %>
+    <div>
+      <%= simple_form_for (ticket) do |f| %>
+        <%# <%= f.input :statut %>
+        <%= f.button :statut, "Custom Button Text" %>
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+      <% end %>
+    </div>
     <button data-controller="tickets" data-action="click->tickets#changeTicketStatut">click</button>
   </li>
   <% end %>
 </ul>
 
 <p>create a new ticket</p>
-<%= simple_form_for [@project, @ticket] do |f| %>
+<%= simple_form_for [@project, @new_ticket] do |f| %>
   <%= f.input :description %>
   <%= f.input :priority %>
   <%= f.submit "Submit", class: "btn btn-primary" %>
