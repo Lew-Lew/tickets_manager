@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @tickets = Ticket.all
+    @tickets = Ticket.where(project: @project.id)
     @ticket = Ticket.new
   end
 
