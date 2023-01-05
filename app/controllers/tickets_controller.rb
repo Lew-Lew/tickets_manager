@@ -18,6 +18,7 @@ class TicketsController < ApplicationController
   def create
     @ticket = Ticket.new(ticket_params)
     @ticket.project = @project
+    @ticket.statut = "open"
     if @ticket.save
       redirect_to project_path(@project)
     else

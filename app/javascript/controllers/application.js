@@ -7,3 +7,4 @@ application.debug = false
 window.Stimulus   = application
 
 export { application }
+console.log("Hello from app/javascript/application.js")
