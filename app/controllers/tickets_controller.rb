@@ -7,8 +7,8 @@ class TicketsController < ApplicationController
   end
 
   def show
-    @message = Message.new
     @messages = Message.where(ticket: @ticket.id)
+    @message = Message.new
   end
 
   def new
