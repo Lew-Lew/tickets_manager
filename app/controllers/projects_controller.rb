@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
 
   def show
     @tickets = Ticket.where(project: @project.id)
-    @ticket = Ticket.new
+    @new_ticket = Ticket.new
   end
 
   def new

@@ -9,6 +9,6 @@ export default class extends Controller {
   changeTicketStatut(event) {
     event.preventDefault()
     console.log(event)
-    this.element.innerText = "close"
+    this.element.innerText = "CLOSE"
   }
 }
